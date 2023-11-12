@@ -6,7 +6,7 @@ export class Record {
         this.record = recordElement;
         this.recordListElement = recordListElement;
         this.recordBoard = document.querySelector('.record');
-        this.recordItems = JSON.parse(window.localStorage.getItem('recordItems')) || [];
+        this.recordItems = JSON.parse(window.localStorage.getItem('tetrisRecordItems')) || [];
         this.maxLength = 5;
     }
     show() {
@@ -83,11 +83,11 @@ export class Record {
         this.recordItems = arr;
     }
     save(arr) {
-        window.localStorage.setItem('recordItems', JSON.stringify(arr));
+        window.localStorage.setItem('tetrisRecordItems', JSON.stringify(arr));
     }
     reset() {
         this.recordListElement.innerHTML = '';
-        this.recordItems = JSON.parse(window.localStorage.getItem('recordItems')) || [];
+        this.recordItems = JSON.parse(window.localStorage.getItem('tetrisRecordItems')) || [];
     }
     showFooter() {
         this.record.lastElementChild.classList.remove('hidden');
