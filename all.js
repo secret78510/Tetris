@@ -21,7 +21,7 @@ const start = document.querySelector('.start');
 
 
 //操作盤
-const myPanel = new Panel(ctx, 50, window.innerHeight - 100, window.innerWidth - 50, window.innerHeight - 100, bgColor);
+const myPanel = new Panel(ctx, 40, window.innerHeight - 80, window.innerWidth - 40, window.innerHeight - 80, bgColor);
 
 // 記錄版
 const myRecord = new Record(
@@ -279,9 +279,9 @@ function resizeEvent(width) {
     canvas.height = window.innerHeight;
     //更新方向盤是否出現與畫面響應
     if (width <= 576) {
-        myPanel.update(50, window.innerHeight - 100, window.innerWidth - 50, window.innerHeight - 100);
-        const newSize = 27;
-        myTetrisCenterBoard.size = 27;
+        myPanel.update(40, window.innerHeight - 80, window.innerWidth - 40, window.innerHeight - 80);
+        const newSize = 25;
+        myTetrisCenterBoard.size = newSize;
         myTetrisLeftBoard.size = 10;
         myTetrisRightBoard.size = 10;
         setSize(newSize);
