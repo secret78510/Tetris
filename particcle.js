@@ -42,7 +42,7 @@ function buildParticle() {
     for (let i = 0; i < particleCount; i++) {
         const fluctuation = Math.random() * 20;
         const vecX = Math.sin(i) * fluctuation;
-        const vecY = Math.sin(i) * fluctuation;
+        const vecY = Math.cos(i) * fluctuation;
         particles.push({ key, x, y, vecX, vecY, color: `rgb(${r}, ${g}, ${b} )` });
     }
 
