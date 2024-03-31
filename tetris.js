@@ -6,6 +6,7 @@ import {
     tetrisBorderColor
 } from './variable.js';
 import { H } from './box.js';
+import { buildParticle } from './particcle.js';
 
 export class Tetris {
     constructor(ctx, data, TetrisBoard, color) {
@@ -148,6 +149,7 @@ export class Tetris {
 
         if (!eliminateArr.length) { return }
 
+        buildParticle();
         while (eliminateArr.length) {
             const r = eliminateArr.shift();
             //消除變成背景色

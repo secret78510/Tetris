@@ -69,6 +69,12 @@ body {
   --recordFooterBtnPseudoColor: #9927dc;
 }
 
+#particleWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 @media (max-width: 576px) {
   :root {
     --scoreSize: 20px;

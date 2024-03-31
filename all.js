@@ -7,10 +7,12 @@ import {
 } from './variable.js';
 import { Record } from './record.js';
 import { Panel } from './panel.js';
+import { particleCanvas } from './particcle.js';
 
 //canvas
 const canvas = document.getElementById('tetris');
 const ctx = canvas.getContext('2d');
+
 
 const bgColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
 const score = document.querySelector('.score span');
@@ -34,6 +36,8 @@ const myRecord = new Record(
 const myTetrisCenterBoard = new TetrisCenterBoard(ctx, X, Y, rowLength, colLength, size, myRecord);
 const myTetrisRightBoard = new TetrisRightBoard(ctx, X + colLength * size + boardBorder, Y, preViewRowLength, preViewColLength, preViewSize);
 const myTetrisLeftBoard = new TetrisLeftBoard(ctx, X - storageColength * storageSize - boardBorder, Y, storageRowLength, storageColength, storageSize);
+
+
 
 //mp3
 const mp3 = document.querySelector('.mp3');
@@ -277,6 +281,8 @@ window.addEventListener('keydown', function (e) {
 function resizeEvent(width) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    particleCanvas.width = window.innerWidth;
+    particleCanvas.height = window.innerHeight;
     //更新方向盤是否出現與畫面響應
     if (width <= 576) {
         myPanel.update(40, window.innerHeight - 80, window.innerWidth - 40, window.innerHeight - 80);
