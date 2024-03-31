@@ -91,7 +91,7 @@ window.addEventListener('keydown', function (e) {
     if (
         e.code === 'ControlLeft'
         && !myTetrisCenterBoard.isEnd
-        && myTetris?.y >= 0
+        && myTetris?.y >= -1
     ) {
         storageSizeTetris();
         ms = 0;

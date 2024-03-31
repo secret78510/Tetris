@@ -5,13 +5,13 @@ import {
     boardBgColor,
     tetrisBorderColor
 } from './variable.js';
-import { H } from './box.js';
+import { H, T } from './box.js';
 import { buildParticle } from './particcle.js';
 
 export class Tetris {
     constructor(ctx, data, TetrisBoard, color) {
         this.x = Math.ceil(colLength / 2) - 2;
-        this.y = -2;
+        this.y = data[0] === T[0] ? -3 : -2;
         this.ctx = ctx;
         this.data = data;
         this.sort = 0;
@@ -51,6 +51,7 @@ export class Tetris {
                 this.drawShape();
             }
         }
+
         if (this.isOutBoard(0, 0, this.data[sort]) || this.isCollision(0, 0, this.data[sort])) { return }
         this.clear();
         // this.ifOutOfBoundsUpdateXY(sort);
@@ -87,7 +88,16 @@ export class Tetris {
             this.clear();
             this.y = this.y - 2;
             return true
+        } else if (!this.isOutBoard(1, 0, curData) && !this.isCollision(1, 0, curData)) {
+            this.clear();
+            this.x = this.x + 1;
+            return true
+        } else if (!this.isOutBoard(-1, 0, curData) && !this.isCollision(-1, 0, curData)) {
+            this.clear();
+            this.x = this.x - 1;
+            return true
         }
+
         return false
     }
     replaceTetris(data, color) {
@@ -236,6 +246,7 @@ export class Tetris {
         this.ctx.beginPath();
         this.ctx.save()
         this.ctx.translate(Math.ceil(this.ctx.canvas.width / 2 - (colLength * size / 2)), 50);
+
         for (let r = 0; r < this.curDataValue.length; r++) {
             for (let c = 0; c < this.curDataValue.length; c++) {
                 //超出範圍不顯示
