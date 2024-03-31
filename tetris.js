@@ -5,13 +5,13 @@ import {
     boardBgColor,
     tetrisBorderColor
 } from './variable.js';
-import { H, T } from './box.js';
+import { H } from './box.js';
 import { buildParticle } from './particcle.js';
 
 export class Tetris {
     constructor(ctx, data, TetrisBoard, color) {
         this.x = Math.ceil(colLength / 2) - 2;
-        this.y = data[0] === T[0] ? -3 : -2;
+        this.y = -2;
         this.ctx = ctx;
         this.data = data;
         this.sort = 0;
