@@ -1,5 +1,6 @@
 import { TetrisCenterBoard, TetrisLeftBoard, TetrisRightBoard } from './tetrisBoard.js';
 import { Tetris } from './tetris.js';
+import { T } from './box.js';
 import {
     size, setSize, colLength, rowLength, X, Y, updateX,
     preViewRowLength, preViewColLength, storageRowLength, storageColength,
@@ -54,6 +55,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'Space'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= -1
+        ||
+        e.code === 'Space'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -2
     ) {
         myTetris.clickSpace();
         ms = 0;
@@ -62,6 +68,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'ArrowUp'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= 0
+        ||
+        e.code === 'ArrowUp'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -1
     ) {
         myTetris.clickUp();
         ms = 0;
@@ -70,6 +81,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'ArrowLeft'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= -1
+        ||
+        e.code === 'ArrowLeft'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -2
     ) {
         myTetris.clickLeft();
     }
@@ -77,6 +93,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'ArrowRight'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= -1
+        ||
+        e.code === 'ArrowRight'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -2
     ) {
         myTetris.clickRight();
     }
@@ -84,6 +105,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'ArrowDown'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= -1
+        ||
+        e.code === 'ArrowDown'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -2
     ) {
         myTetris.clickDown();
         ms = 0;
@@ -92,6 +118,11 @@ window.addEventListener('keydown', function (e) {
         e.code === 'ControlLeft'
         && !myTetrisCenterBoard.isEnd
         && myTetris?.y >= -1
+        ||
+        e.code === 'ControlLeft'
+        && !myTetrisCenterBoard.isEnd
+        && myTetris?.curDataValue === T[0]
+        && myTetris?.y >= -2
     ) {
         storageSizeTetris();
         ms = 0;
